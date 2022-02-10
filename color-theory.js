@@ -5,7 +5,7 @@ document.addEventListener('readystatechange', function () {
     }
 });
 
-t79FV = {
+var t79FV = {
 
 }
 

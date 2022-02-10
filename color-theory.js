@@ -1,6 +1,7 @@
 document.addEventListener('readystatechange', function () {
     if (document.readyState === 'interactive') {
         collectAllFeatureImagesForFullscreenView();
+        initFullscreenView();
     }
 });
 
@@ -22,3 +23,23 @@ function collectAllFeatureImagesForFullscreenView() {
 
 }
 
+function initFullscreenView() {
+
+    t79FV.nextFullscrenImageArrow = document.getElementById('prvious-fullscreen-image-arrow');
+    t79FV.nextFullscrenImageArrow.setAttribute('data-direction', 'next');
+    preparFullscreenArrows(t79FV.nextFullscrenImageArrow);
+    t79FV.previousFullscrenImageArrow = document.getElementById('next-fullscreen-image-arrow');
+    t79FV.previousFullscrenImageArrow.setAttribute('data-direction', 'previous');
+    preparFullscreenArrows(t79FV.previousFullscrenImageArrow);
+
+    function preparFullscreenArrows(arrow) {
+        arrow.addEventListener('click', function(event) {
+            event.stopPropagation();
+            changeFullscreenImage(this);
+        })
+    }
+}
+
+function changeFullscreenImage(arrow) {
+
+}

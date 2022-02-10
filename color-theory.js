@@ -17,7 +17,7 @@ function collectAllFeatureImagesForFullscreenView() {
     for (imageIndex in imageArray) {
         imageArray[imageIndex].id = 'image-id-' + imageIndex;
         imageArray[imageIndex].setAttribute('onclick', 'goIntoFullscreenImageView(this)');
-        imageArray[imageIndex].getElementsByClassName.cursor = 'zoom-in';
+        imageArray[imageIndex].style.cursor = 'zoom-in';
     }
     t79FV.totalNumberOfImages = imageArray.length;
 

@@ -47,7 +47,7 @@ main {
     border-radius: 0.3em;
     color: black;
     width: min(calc(40rem + 25vw), 90vw);
-    padding: 1em 1em 1em 2.5em;
+    padding: 1em 2em 1em 2.5em;
     margin: 0;
     overflow: hidden;
 }
@@ -99,15 +99,41 @@ menu sup {
 }
 
 #main-content {
-    width: min(100%,37em);
+    /* width: min(100%,37em);
+    max-width: min(100%,37em); */
+    width: 100%;
+    opacity: 1;
+    
 }
 
 #main-content p {
-    text-indent: 2em;;
+    width: 100%;
+    text-indent: 2em;
+    padding-right: calc(100% - 37em);
+}
+
+#main-content figure {
+    width: min(45%, 20em);
+    height: auto;
+    float: right;
+    padding: 0;
+    margin: 1.5em;
+    padding-right: 0;
+    margin-right: 0;
+}
+
+#main-content figcaption {
+    font-size: 0.9em;
+}
+
+#main-content img {
+    width: 100%;
+    height: auto;
 }
 
 #referances {
     font-size: 0.9em;
+    opacity: 1;
 }
 
 #referances h3 {

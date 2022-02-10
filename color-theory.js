@@ -46,3 +46,4 @@ function initFullscreenView() {
 function changeFullscreenImage(arrow) {
 
 }
+

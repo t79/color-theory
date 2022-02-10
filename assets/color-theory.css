@@ -6,3 +6,171 @@ html {
     padding: 0;
 	margin: 0;
 }
+
+body {
+	background-color: white;
+    color: black;
+	padding: 1em 0 1em 0;
+	margin: 0;
+	width: 100vw;
+    font-family: "Helvetica", Helvetica, Arial, sans-serif;
+	font-size: 1em;
+	font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.075em;
+}
+
+
+main {
+    width: 100%;
+    display: flex;
+	flex-flow: column nowrap;
+	align-items: flex-start;
+    justify-content: center;
+	row-gap: calc(0.6em + 1.5vw);
+    overflow-x: hidden;
+}
+
+.content-block-container {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+ 	justify-content: center;
+    align-items: flex-start;
+}
+
+.content-block{
+    display: flex;
+	justify-content: flex-start;
+	flex-flow: column nowrap;
+    align-items: flex-start;
+    border-radius: 0.3em;
+    color: black;
+    width: min(calc(40rem + 25vw), 90vw);
+    padding: 1em 1em 1em 2.5em;
+    margin: 0;
+    overflow: hidden;
+}
+
+#page-header {
+    display: flex;
+	justify-content: flex-start;
+	flex-flow: row wrap;
+	align-content: flex-start;
+}
+
+h1 {
+    display: block;
+    width: 100%;
+    font-size: 2.5em;
+	font-weight: 900;
+	letter-spacing: 0.05em;
+    color: #081d58;
+	padding: 0;
+    margin: 0;
+}
+
+#page-header img {
+    height: 1em;
+    width: auto;
+}
+
+menu {
+    margin: 0;
+    padding: 0;
+}
+
+#top-menu  li{
+    display: inline-block;
+    font-weight: 700;
+    color: #abb2c5;
+    margin-right: 2.5em;
+}
+
+#top-menu a {
+    text-decoration: none;
+}
+
+menu sup {
+    font-size: 0.6em;
+    vertical-align: baseline;
+    position: relative;
+    top: -0.7em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 450px) {
+    html { 
+        font-size: 14px; 
+   } 
+}
+@media only screen and (min-width: 450px) { 
+   html { 
+       font-size: 14.3px; 
+   } 
+}
+@media only screen and (min-width: 520px) { 
+   html { 
+       font-size: 14.6px; 
+   } 
+}
+@media only screen and (min-width: 590px) { 
+   html { 
+       font-size: 15px; 
+   } 
+}
+@media only screen and (min-width: 620px) { 
+   html { 
+       font-size: 15px; 
+   }
+}
+@media only screen and (min-width: 710px) {
+    html { 
+        font-size: 15.7px; 
+   } 
+}
+@media only screen and (min-width: 760px) { 
+   html { 
+       font-size: 16px; 
+   } 
+}
+@media only screen and (min-width: 950px) { 
+   html { 
+       font-size: 16px; 
+   }
+}
+@media only screen and (min-width: 1000px) { 
+   html { 
+       font-size: 16.2px; 
+   }
+}
+@media only screen and (min-width: 1250px) { 
+   html { 
+       font-size: 16.5px; 
+   }
+}
+@media only screen and (min-width: 1430px) { 
+   html { 
+       font-size: 16.75px; 
+   }
+}
+@media only screen and (min-width: 1650px) { 
+   html { 
+       font-size: 17px; 
+   }
+}

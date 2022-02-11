@@ -93,7 +93,7 @@ function goIntoFullscreenImageView(image) {
         styleFullscreenContainer('goingToPlaceTheImage');
         styleInnerImageFrame('goingToPlaceTheImage');
         placeImageInFullscreenView();
-    }, 100);
+    }, 200);
 }
 
 function placeImageInFullscreenView() {
@@ -122,7 +122,6 @@ function placeImageInFullscreenView() {
 
     window.setTimeout( function() {
         if(t79FV.imageOnWayIntoFullscreen) {
-            console.log('placed in fullscreen: ' + t79FV.fullscreenImageWidth + ' ' + t79FV.fullscreenImageHeight + ' ' + imageFullWidth);
             styleFullscreenContainer('imageAreNowPlacedForFirstTime');
             styleInnerImageFrame('imageAreNowPlacedForFirstTime');
             t79FV.imageOnWayIntoFullscreen = false;
@@ -195,7 +194,7 @@ function styleInnerImageFrame(state) {
             t79FV.innerImageFrame.style.opacity = '0.4';
             break;
         case 'imageAreNowPlacedForFirstTime':
-            transitionTime = t79FV.originalImage.getAttribute('width') / t79FV.originalImage.clientWidth * 0.1;
+            transitionTime = t79FV.originalImage.getAttribute('width') / t79FV.originalImage.clientWidth * 0.18;
         case 'imageIsPlaced':
             t79FV.innerImageFrame.style.transition = 'all ' + transitionTime +'s ease-in';
             t79FV.innerImageFrame.style.width = t79FV.fullscreenImageWidth + 'px';

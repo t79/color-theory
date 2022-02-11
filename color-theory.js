@@ -47,3 +47,87 @@ function changeFullscreenImage(arrow) {
 
 }
 
+
+function goIntoFullscreenImageView(image) {
+
+    t79FV.originalImage = image;
+    const imageNumberString = image.getAttribute('id').split('-')[2];
+    t79FV.activeImgNumber = parseInt(imageNumberString);
+
+    dispalayChangeImageArrows(false);
+
+    t79FV.innerImageFrame = document.createElement('div');
+    t79FV.innerImageFrame.classList.add('image-view-inner-frame');
+    styleInnerImageFrame('enterFullscreen');
+
+    t79FV.scaledImage = document.createElement('img');
+    t79FV.scaledImage.src = t79FV.originalImage.src;
+    t79FV.scaledImage.classList.add('fullscreen-image');
+    
+    t79FV.innerImageFrame.appendChild(t79FV.scaledImage);
+    t79FV.outerImageFrame.appendChild(t79FV.innerImageFrame);
+
+    styleOriginalImage('enterFullscreen');
+    styleFullscreenContainer('enterFullscreen');
+    t79FV.fullscreenContainer.style.display = 'inline';
+
+    t79FV.onWayIntoFullscreen = true;
+
+    window.setTimeout( function() {
+        styleFullscreenContainer('goingToPlaceTheImage');
+        styleInnerImageFrame('goingToPlaceTheImage');
+        placeImageInFullscreenView();
+    }, 500);
+}
+
+function placeImageInFullscreenView() {
+
+}
+
+function dispalayChangeImageArrows(display) {
+
+    if (t79FV.totalNumberOfImages > 1 && display) {
+        if (t79FV.activeImgNumber == 0) {
+            t79FV.nextFullscrenImageArrow.style.display = 'inline';
+            t79FV.previousFullscrenImageArrow.style.display = 'none';
+        } else if (t79FV.activeImgNumber == t79FV.totalNumberOfImages - 1) {
+            t79FV.nextFullscrenImageArrow.style.display = 'none';
+            t79FV.previousFullscrenImageArrow.style.display = 'inline';
+        } else {
+            t79FV.nextFullscrenImageArrow.style.display = 'inline';
+            t79FV.previousFullscrenImageArrow.style.display = 'ninline';
+        }
+    } else {
+        t79FV.nextFullscrenImageArrow.style.display = 'none';
+        t79FV.previousFullscrenImageArrow.style.display = 'none';
+    }
+}
+
+var t79styiling = {
+    FULL_VIEW_BACKGROUND_COLOR: '#ffffff66',
+    IMAGE_OPACITY_ON_WAY_IN: '0.3',
+}
+
+function styleFullscreenContainer(state) {
+    switch(state) {
+        case 'enterFullscreen':
+            t79FV.fullscreenContainer.style.backgroundColor = t79styiling.FULL_VIEW_BACKGROUND_COLOR;
+    }
+}
+
+function styleInnerImageFrame(state) {
+    switch(state) {
+        case 'enterFullscreen':
+            t79FV.innerImageFrame.style.width = t79FV.originalImage.clientWidth + 'px';
+            t79FV.innerImageFrame.style.height  = t79FV.originalImage.clientHeight + 'px';
+            t79FV.innerImageFrame.style.opacity = t79styiling.IMAGE_OPACITY_ON_WAY_IN;
+    }
+}
+
+function styleOriginalImage(state) {
+    switch(state) {
+        case 'enterFullscreen':
+            t79FV.originalImage.style.opacity = '0';
+            t79FV.originalImage.style.cursor = 'default';
+    }
+}

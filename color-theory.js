@@ -41,6 +41,18 @@ function initFullscreenView() {
 
     t79FV.fullscreenContainer = document.getElementById('fullscreen-view-container');
     t79FV.outerImageFrame = document.getElementById('outer-image-frame');
+
+    t79FV.fullscreenContainer.onclick = function() {
+        t79FV.imageIsPlacedInFullscreen = false;
+        t79FV.imageOnWayIntoFullscreen = false;
+        styleFullscreenContainer('leavingFullscreen');
+        styleInnerImageFrame('leavingFullscreen');
+        t79FV.innerImageFrame.addEventListener('transitionend', function() {
+            styleOriginalImage('hasLeftFullscreen');
+            t79FV.fullscreenContainer.style.display = 'none';
+            t79FV.outerImageFrame.innerHTML = '';
+        });
+    }
 }
 
 function changeFullscreenImage(arrow) {
@@ -71,7 +83,7 @@ function goIntoFullscreenImageView(image) {
     styleFullscreenContainer('enterFullscreen');
     t79FV.fullscreenContainer.style.display = 'inline';
 
-    t79FV.onWayIntoFullscreen = true;
+    t79FV.imageOnWayIntoFullscreen = true;
 
     window.setTimeout( function() {
         styleFullscreenContainer('goingToPlaceTheImage');
@@ -112,6 +124,7 @@ function styleFullscreenContainer(state) {
     switch(state) {
         case 'enterFullscreen':
             t79FV.fullscreenContainer.style.backgroundColor = t79styiling.FULL_VIEW_BACKGROUND_COLOR;
+            break;
     }
 }
 
@@ -121,6 +134,10 @@ function styleInnerImageFrame(state) {
             t79FV.innerImageFrame.style.width = t79FV.originalImage.clientWidth + 'px';
             t79FV.innerImageFrame.style.height  = t79FV.originalImage.clientHeight + 'px';
             t79FV.innerImageFrame.style.opacity = t79styiling.IMAGE_OPACITY_ON_WAY_IN;
+            break;
+        case 'leavingFullscreen':
+            t79FV.innerImageFrame.style.transition = 'all 0.2s ease-out';
+            t79FV.innerImageFrame.style.opacity = '0.6';
     }
 }
 
@@ -129,5 +146,9 @@ function styleOriginalImage(state) {
         case 'enterFullscreen':
             t79FV.originalImage.style.opacity = '0';
             t79FV.originalImage.style.cursor = 'default';
+            break;
+        case 'hasLeftFullscreen':
+            t79FV.originalImage.style.opacity = '1';
+            t79FV.originalImage.style.cursor = 'zoom-in';
     }
 }
